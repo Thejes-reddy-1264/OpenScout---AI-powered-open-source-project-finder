@@ -21,7 +21,7 @@ https://openscout-ai-dun.vercel.app/
 
 **GitHub Repository:**
 
-https://github.com/sujith2359/open-source-project-finder
+https://github.com/Thejes-reddy-1264/OpenScout---AIpowered-open-source-project-finder
 
 ---
 
@@ -174,7 +174,7 @@ Install the following:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/sujith2359/open-source-project-finder.git
+https://github.com/Thejes-reddy-1264/OpenScout---AIpowered-open-source-project-finder 
 
 cd open-source-project-finder
 ```
@@ -407,7 +407,7 @@ Note: The frontend live demo is deployed on Vercel. Backend and database availab
 
 **Project:** OpenScout – AI-Powered Open Source Project Finder
 
-**GitHub:** https://github.com/sujith2359/open-source-project-finder
+**GitHub:** https://github.com/Thejes-reddy-1264/OpenScout---AIpowered-open-source-project-finder 
 
 **Live Demo:** https://openscout-ai-dun.vercel.app/
 
