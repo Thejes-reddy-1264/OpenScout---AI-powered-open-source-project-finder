@@ -4,7 +4,7 @@
   <a href="https://openscout-ai-dun.vercel.app/">
     <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit_OpenScout-brightgreen?style=for-the-badge" alt="Live Demo"/>
   </a>
-  <a href="https://github.com/sujith2359/open-source-project-finder">
+  <a href="https://github.com/Thejes-reddy-1264/OpenScout---AIpowered-open-source-project-finder ">
     <img src="https://img.shields.io/badge/GitHub-Source_Code-black?style=for-the-badge&logo=github" alt="GitHub"/>
   </a>
 </p>
