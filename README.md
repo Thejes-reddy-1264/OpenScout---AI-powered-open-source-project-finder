@@ -1,330 +1,418 @@
-# OpenScout
+# 🚀 OpenScout – AI-Powered Open Source Project Finder
 
-> AI-Powered Open Source Project Finder
+<p align="center">
+  <a href="https://openscout-ai-dun.vercel.app/">
+    <img src="https://img.shields.io/badge/🚀_Live_Demo-Visit_OpenScout-brightgreen?style=for-the-badge" alt="Live Demo"/>
+  </a>
+  <a href="https://github.com/sujith2359/open-source-project-finder">
+    <img src="https://img.shields.io/badge/GitHub-Source_Code-black?style=for-the-badge&logo=github" alt="GitHub"/>
+  </a>
+</p>
 
-OpenScout is an intelligent discovery platform that helps developers find, evaluate, compare, and understand GitHub repositories using conversational, natural language queries.
+OpenScout is an AI-powered open-source project discovery platform that helps developers find, evaluate, compare, and understand GitHub repositories using natural-language queries.
 
----
+Instead of manually searching through hundreds of repositories, developers can describe their requirements in simple English and receive relevant project recommendations powered by AI, semantic search, and Retrieval-Augmented Generation (RAG).
 
-## 1. Project Introduction
+## 🌐 Live Demo
 
-Finding the right open-source library or starter template often requires hours of sifting through search results, documentation, star counts, and outdated issues. Traditional discovery fails when developers have multi-faceted, contextual requirements.
+**Try OpenScout here:**
 
-For example, a user can ask:
-> *"I want to build an AI healthcare chatbot using Python, FastAPI and React. I am a beginner and prefer repositories with good documentation."*
+https://openscout-ai-dun.vercel.app/
 
-OpenScout decodes user intent, extracts technical and domain constraints with Mistral AI, queries live GitHub repositories, computes semantic similarity using vector embeddings, ranks projects by real-world relevance, and provides an interactive RAG-based chatbot to explore codebases without clone friction.
+**GitHub Repository:**
 
----
-
-## 2. Project Objectives
-
-- **Natural Language Query Understanding**: Translate free-form developer queries into structured search criteria.
-- **AI-Powered Requirement Extraction**: Extract language, framework, domain, experience level, and license preferences using Mistral AI.
-- **Live GitHub Repository Search**: Search and verify active GitHub repositories via the GitHub REST API.
-- **Semantic Repository Matching**: Perform dense vector similarity matching with Sentence Transformers and `pgvector`.
-- **Intelligent Relevance Ranking**: Score candidate projects using a hybrid metric balancing semantic fit, documentation completeness, and repository health.
-- **AI-Generated Explanations**: Explain why a recommended project satisfies the user's specific context and constraints.
-- **Repository Comparison**: Compare multiple candidate repositories side-by-side across architecture, activity, and community support.
-- **RAG Repository Chatbot**: Provide conversational Q&A grounded directly in indexed repository documentation, READMEs, and codebase structure.
+https://github.com/sujith2359/open-source-project-finder
 
 ---
 
-## 3. Technology Stack
+## 📌 1. Project Introduction
+
+Finding the right open-source library, framework, or starter template can take hours of searching through GitHub repositories, documentation, star counts, and outdated issues.
+
+Traditional repository searches often fail to understand complex requirements involving multiple technologies, domains, and developer experience levels.
+
+OpenScout addresses this problem through AI-powered repository discovery.
+
+### Example User Query
+
+"I want to build an AI healthcare chatbot using Python, FastAPI, and React. I am a beginner and prefer repositories with good documentation."
+
+OpenScout analyzes the user's requirements, extracts technical constraints using Mistral AI, searches GitHub repositories, performs semantic similarity matching, and recommends relevant projects.
+
+It also provides an AI-powered repository chatbot that helps users explore repository documentation and code through conversational questions.
+
+## 🎯 2. Project Objectives
+
+- **Natural Language Query Understanding:** Convert user queries into structured project requirements.
+- **AI-Powered Requirement Extraction:** Identify programming languages, frameworks, domains, experience levels, and license preferences.
+- **Live GitHub Search:** Discover repositories using the GitHub REST API.
+- **Semantic Repository Matching:** Find relevant projects using Sentence Transformers and pgvector.
+- **Intelligent Ranking:** Rank repositories based on semantic relevance, documentation quality, and repository health.
+- **AI-Generated Explanations:** Explain why a repository matches the user's requirements.
+- **Repository Comparison:** Compare multiple repositories based on architecture, activity, and community support.
+- **RAG-Based Repository Chatbot:** Ask questions about indexed repository documentation and codebase content.
+
+## 🛠️ 3. Technology Stack
 
 ### Frontend
-- **React.js 19**: Modern UI library with component-driven architecture.
-- **TypeScript**: End-to-end static typing and interface contracts.
-- **Vite 8**: High-performance frontend bundler and development server.
-- **Tailwind CSS 4**: Utility-first styling framework with modern theme integration.
+- React.js 19
+- TypeScript
+- Vite 8
+- Tailwind CSS 4
 
 ### Backend
-- **Python 3.14 / 3.13**: High-performance, type-annotated application core.
-- **FastAPI**: Modern, async-first web framework with automatic OpenAPI documentation.
-- **Pydantic & Pydantic-Settings**: Strict data validation, schema enforcement, and environment configuration.
-- **Uvicorn**: Lightning-fast ASGI production web server.
+- Python
+- FastAPI
+- Pydantic
+- Pydantic Settings
+- Uvicorn
 
-### AI & Data
-- **Mistral API**: Primary LLM provider for intent extraction, query understanding, and RAG synthesis (`mistral-small-latest`).
-- **Sentence Transformers**: Dense vector embeddings (`sentence-transformers/all-MiniLM-L6-v2`, 384 dimensions) for semantic repository and document matching.
-- **GitHub REST API (v3)**: Official API for repository discovery, metadata verification, and documentation ingestion.
-- **PostgreSQL + pgvector**: Relational storage and vector database for repository embeddings, chunk indexes, and conversational chat history.
-- **SQLAlchemy & Alembic**: Async ORM and database schema migration management.
+### AI and Machine Learning
+- Mistral AI API – Natural-language understanding and AI-generated responses.
+- Mistral Small Latest – Primary language model.
+- Sentence Transformers – Semantic embeddings.
+- `sentence-transformers/all-MiniLM-L6-v2` – Embedding model with 384 dimensions.
+- Retrieval-Augmented Generation (RAG) – Repository question answering.
 
-### Deployment & CI/CD
-- **GitHub**: Git version control and GitHub Actions automation.
-- **Vercel**: Edge-optimized hosting for the React SPA frontend.
-- **Render**: Containerized deployment for the FastAPI backend and managed PostgreSQL database.
+### Database and Storage
+- PostgreSQL
+- pgvector
+- SQLAlchemy
+- Alembic
 
----
+### External Integration
+- GitHub REST API v3
+- HTTPX
 
-## 4. Project Directory Structure
+### Deployment and Development
+- GitHub
+- Vercel – Frontend hosting.
+- Render – Backend and database deployment option.
+- Docker
+- GitHub Actions
 
-```
+## 🏗️ 4. System Architecture
+
+OpenScout follows a modular frontend-backend architecture.
+
+### High-Level Workflow
+
+1. The user enters a natural-language project requirement.
+2. React sends the query to the FastAPI backend.
+3. Mistral AI extracts structured requirements.
+4. The backend searches live GitHub repositories.
+5. Sentence Transformers generates semantic embeddings.
+6. pgvector performs semantic similarity matching.
+7. The system ranks and filters relevant repositories.
+8. AI generates explanations for recommended projects.
+9. Repository documentation can be indexed for RAG-based question answering.
+10. The frontend displays project recommendations and chatbot responses.
+
+### Architecture Components
+
+| Component | Responsibility |
+|---|---|
+| React + TypeScript | User interface |
+| FastAPI | Backend API and business logic |
+| Mistral AI | Query understanding and language generation |
+| GitHub REST API | Live repository discovery |
+| Sentence Transformers | Text embeddings |
+| PostgreSQL + pgvector | Relational and vector storage |
+| RAG | Context-based repository question answering |
+| Vercel | Frontend deployment |
+
+## 📂 5. Project Directory Structure
+
+```text
 OpenScout/
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── components/         # Reusable UI components
-│   │   ├── pages/              # Route views & dashboards
-│   │   ├── services/           # API clients & backend integrations
-│   │   ├── hooks/              # Custom React hooks
-│   │   ├── types/              # TypeScript types & interfaces
-│   │   ├── assets/             # Static graphics and icons
-│   │   ├── App.tsx             # Root React component
-│   │   └── main.tsx            # React application entrypoint
-│   ├── public/                 # Static assets (favicons, icons)
-│   ├── package.json            # Node dependencies and scripts
-│   └── .env.example            # Frontend environment variable template
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── hooks/
+│   │   ├── types/
+│   │   ├── assets/
+│   │   ├── App.tsx
+│   │   └── main.tsx
+│   ├── public/
+│   ├── package.json
+│   └── .env.example
 │
 ├── backend/
 │   ├── app/
-│   │   ├── api/                # Modular API endpoints & routers
-│   │   ├── core/               # Configuration & security settings
-│   │   ├── models/             # Database ORM models
-│   │   ├── schemas/            # Pydantic validation schemas
-│   │   ├── services/           # Business logic & external clients
-│   │   └── main.py             # FastAPI entrypoint & middleware setup
-│   ├── tests/                  # Pytest test suite
-│   ├── requirements.txt        # Python dependencies
-│   └── .env.example            # Backend environment variable template
+│   │   ├── api/
+│   │   ├── core/
+│   │   ├── models/
+│   │   ├── schemas/
+│   │   ├── services/
+│   │   └── main.py
+│   ├── tests/
+│   ├── requirements.txt
+│   └── .env.example
 │
 ├── docs/
-│   └── ARCHITECTURE.md         # Comprehensive system architecture documentation
+│   └── ARCHITECTURE.md
 │
-├── .gitignore                  # Git exclusions for secrets and builds
-└── README.md                   # Project overview and setup documentation
+├── .gitignore
+└── README.md
 ```
 
----
+## ⚙️ 6. Installation and Setup
 
-## 5. Frontend Installation Instructions
+### Prerequisites
 
-Ensure you have **Node.js (>= 18.x)** and **npm** installed.
+Install the following:
 
-```powershell
-# Navigate to the frontend directory
+- Node.js 18 or later
+- Python 3.10 or later
+- PostgreSQL with pgvector
+- Git
+- Docker (for the configured database setup)
+
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/sujith2359/open-source-project-finder.git
+
+cd open-source-project-finder
+```
+
+### Step 2: Setup Frontend
+
+```bash
 cd frontend
 
-# Install dependencies
 npm install
 
-# Build the frontend to verify TypeScript types and bundling
-npm run build
+npm run dev
 ```
 
----
+Frontend development URL:
 
-## 6. Backend Installation Instructions
+```text
+http://localhost:5173
+```
 
-Ensure you have **Python 3.10+** installed.
+### Step 3: Setup Backend
 
-```powershell
-# Navigate to the backend directory
+Open another terminal:
+
+```bash
 cd backend
 
-# Create a virtual environment
 python -m venv .venv
+```
 
-# Activate the virtual environment
-# Windows PowerShell:
+Activate the virtual environment.
+
+Windows PowerShell:
+
+```powershell
 .\.venv\Scripts\Activate.ps1
-# Linux / macOS:
-# source .venv/bin/activate
+```
 
-# Install dependencies
+Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
----
+Start FastAPI:
 
-## 7. Environment Variable Setup
-
-### Backend (`backend/.env`)
-Copy the example file to create your local `.env`:
-```powershell
-cd backend
-Copy-Item .env.example .env
+```bash
+uvicorn app.main:app --app-dir backend --reload --port 8000
 ```
 
-Configuration keys:
-| Variable | Description | Default |
-|---|---|---|
-| `FRONTEND_URL` | Allowed origin for frontend CORS | `http://localhost:5173` |
-| `ALLOWED_ORIGINS` | Optional comma-separated extra CORS origins | *(empty)* |
-| `MISTRAL_API_KEY` | Mistral AI API key (Backend only) | `your_mistral_api_key` |
-| `MISTRAL_MODEL` | Mistral model identifier | `mistral-small-latest` |
-| `GITHUB_TOKEN` | GitHub Personal Access Token (Backend only) | *(empty for unauthenticated search)* |
-| `DATABASE_URL` | PostgreSQL connection string with pgvector | `postgresql+asyncpg://postgres:postgres@localhost:5432/openscout` |
-| `EMBEDDING_MODEL` | HuggingFace sentence embedding model | `sentence-transformers/all-MiniLM-L6-v2` |
-| `EMBEDDING_DIMENSION` | Dimensionality of dense vector embeddings | `384` |
+Backend URL:
 
-### Frontend (`frontend/.env`)
-Copy the example file to create your local `.env`:
-```powershell
-cd frontend
-Copy-Item .env.example .env
+```text
+http://localhost:8000
 ```
 
-Configuration keys:
-| Variable | Description | Default |
-|---|---|---|
-| `VITE_API_BASE_URL` | Backend API base URL accessible by browser | `http://localhost:8000` |
+Swagger API documentation:
 
-> **Security Rule**: API keys (`MISTRAL_API_KEY`, `GITHUB_TOKEN`, `DATABASE_URL`) must never be placed in frontend environment files or client-side code.
+```text
+http://localhost:8000/docs
+```
 
----
+### Step 4: Setup Database
 
-## 8. Commands to Run Frontend, Backend, and Database
-
-### Running Database (PostgreSQL + pgvector via Docker)
 From the project root:
-```powershell
+
+```bash
 docker compose up -d
 ```
 
-### Running Database Migrations (Alembic)
-```powershell
-cd backend
-..\backend\.venv\Scripts\alembic upgrade head
-```
+Run database migrations:
 
-### Running Backend (FastAPI)
-From the project root:
-```powershell
-# Activate the virtual environment
-.\backend\.venv\Scripts\Activate.ps1
-
-# Start the development server
-uvicorn app.main:app --app-dir backend --reload --port 8000
-```
-- Interactive Swagger UI: [http://localhost:8000/docs](http://localhost:8000/docs)
-- Interactive ReDoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
-
-### Running Frontend (Vite)
-From the project root in a separate terminal:
-```powershell
-cd frontend
-npm run dev
-```
-- Frontend application URL: [http://localhost:5173](http://localhost:5173)
-
-### Running Automated Backend Tests
-```powershell
-.\backend\.venv\Scripts\pytest backend/tests
-```
-
-### Verification Endpoints
-- **Root**: `GET http://localhost:8000/`
-- **Health**: `GET http://localhost:8000/api/health`
-- **AI Query Understanding**: `POST http://localhost:8000/api/v1/understand-query`
-- **Semantic Vector Search**: `POST http://localhost:8000/api/v1/search/semantic-search`
-- **Index Repository**: `POST http://localhost:8000/api/v1/repositories/{owner}/{repo}/index`
-- **Index Status**: `GET http://localhost:8000/api/v1/repositories/{owner}/{repo}/index-status`
-- **RAG Chat**: `POST http://localhost:8000/api/v1/chat`
-- **Chat History**: `GET http://localhost:8000/api/v1/chat/{conversation_id}/messages`
-
----
-
-## 9. Deployment Guide
-
-### A. Pushing to GitHub
-
-1. Ensure all your local changes are committed:
-   ```bash
-   git add -A
-   git commit -m "feat: complete project and production deployment setup"
-   ```
-2. Create a new repository on [GitHub](https://github.com/new) (e.g. `openscout`).
-3. Link your local repository and push:
-   ```bash
-   # Rename branch to main if needed
-   git branch -M main
-
-   # Add your GitHub remote repository
-   git remote add origin https://github.com/<YOUR_GITHUB_USERNAME>/openscout.git
-
-   # Push code to GitHub
-   git push -u origin main
-   ```
-
-> **Security Note**: All secrets (`.env`, credentials, local database caches) are protected by `.gitignore` and `.dockerignore`. Only `.env.example` templates are tracked in Git.
-
----
-
-### B. Deploying Frontend to Vercel
-
-The frontend is a modern React 19 + Vite SPA optimized for Vercel edge deployment with client-side routing support via `vercel.json`.
-
-#### Option 1: Via Vercel Web Dashboard (Recommended)
-1. Go to [vercel.com](https://vercel.com) and click **"Add New..."** -> **"Project"**.
-2. Connect your GitHub account and import your `openscout` repository.
-3. Configure Project Settings:
-   - **Framework Preset**: `Vite`
-   - **Root Directory**: `frontend`
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. In **Environment Variables**, add:
-   - `VITE_API_BASE_URL`: The public URL of your deployed backend (e.g. `https://openscout-backend.onrender.com`).
-5. Click **Deploy**. Vercel will build and assign you a production URL (e.g. `https://openscout.vercel.app`).
-
-#### Option 2: Deploying from Repository Root
-A root [vercel.json](file:///c:/OpenScoutAI/vercel.json) is also provided. If you import the root repository without changing the root directory, Vercel will automatically build the `frontend` folder and route all SPA traffic to `/index.html`.
-
----
-
-### C. Deploying Backend (Render / Railway / Container)
-
-#### Option 1: Deploy on Render
-1. Go to [render.com](https://render.com) and click **"New Web Service"**.
-2. Connect your GitHub repository.
-3. Configure:
-   - **Root Directory**: `backend`
-   - **Environment**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-4. Add Environment Variables:
-   - `GITHUB_TOKEN`: Your GitHub Personal Access Token.
-   - `MISTRAL_API_KEY`: Your Mistral AI API key.
-   - `MISTRAL_MODEL`: `mistral-small-latest`.
-   - `FRONTEND_URL`: Your Vercel frontend URL (e.g. `https://openscout.vercel.app`).
-   - `DATABASE_URL`: Your PostgreSQL connection string with `pgvector` (e.g. from Render PostgreSQL or Supabase).
-   - `EMBEDDING_MODEL`: `sentence-transformers/all-MiniLM-L6-v2`.
-   - `EMBEDDING_DIMENSION`: `384`.
-
-#### Option 2: Deploy with Docker
-A production [Dockerfile](file:///c:/OpenScoutAI/backend/Dockerfile) is provided in `backend/`:
 ```bash
-docker build -t openscout-backend -f backend/Dockerfile backend/
-docker run -p 8000:8000 --env-file backend/.env openscout-backend
+cd backend
+
+alembic upgrade head
 ```
 
+Ensure that your PostgreSQL database has the pgvector extension enabled and the database connection is correctly configured.
+
+## 🔐 7. Environment Variables
+
+Create your local environment files using the provided examples.
+
+### Backend Configuration
+
+File: `backend/.env`
+
+| Variable | Description |
+|---|---|
+| FRONTEND_URL | Frontend origin allowed by CORS |
+| ALLOWED_ORIGINS | Additional allowed frontend origins |
+| MISTRAL_API_KEY | Mistral API key |
+| MISTRAL_MODEL | Mistral model identifier |
+| GITHUB_TOKEN | Optional GitHub personal access token |
+| DATABASE_URL | PostgreSQL connection URL |
+| EMBEDDING_MODEL | Sentence Transformers model |
+| EMBEDDING_DIMENSION | Embedding dimension (384) |
+
+Example model configuration:
+
+```env
+MISTRAL_MODEL=mistral-small-latest
+EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+EMBEDDING_DIMENSION=384
+```
+
+### Frontend Configuration
+
+File: `frontend/.env`
+
+```env
+VITE_API_BASE_URL=http://localhost:8000
+```
+
+For production, configure this variable with your deployed backend API URL.
+
+**Security:** Never expose Mistral API keys, GitHub tokens, or database credentials in frontend code or public repositories.
+
+## 🔌 8. Important API Endpoints
+
+The backend provides API endpoints for repository discovery, semantic search, indexing, and RAG-based conversations.
+
+| Endpoint | Method | Purpose |
+|---|---|---|
+| `/` | GET | Root endpoint |
+| `/api/health` | GET | Health check |
+| `/api/v1/understand-query` | POST | AI query understanding |
+| `/api/v1/search/semantic-search` | POST | Semantic repository search |
+| `/api/v1/repositories/{owner}/{repo}/index` | POST | Index repository |
+| `/api/v1/repositories/{owner}/{repo}/index-status` | GET | Check indexing status |
+| `/api/v1/chat` | POST | RAG chatbot |
+| `/api/v1/chat/{conversation_id}/messages` | GET | Retrieve chat history |
+
+Check the actual API documentation at:
+
+`http://localhost:8000/docs`
+
+## 🧠 9. How RAG Works in OpenScout
+
+OpenScout uses Retrieval-Augmented Generation to help users ask questions about GitHub repositories.
+
+### RAG Workflow
+
+1. The user selects a repository.
+2. The backend retrieves its documentation and relevant code content.
+3. The content is divided into smaller chunks.
+4. Sentence Transformers converts the chunks into vector embeddings.
+5. The embeddings are stored in PostgreSQL using pgvector.
+6. The user asks a question about the repository.
+7. The question is converted into an embedding.
+8. Semantic retrieval finds relevant repository chunks.
+9. Retrieved context is provided to Mistral AI.
+10. The LLM generates a context-based response with available source citations.
+
+This enables developers to explore repositories without manually cloning and reading every file.
+
+## 🚀 10. Deployment
+
+### Frontend Deployment – Vercel
+
+OpenScout's frontend is deployed on Vercel.
+
+Live application:
+
+https://openscout-ai-dun.vercel.app/
+
+To configure another deployment:
+
+1. Import the GitHub repository into Vercel.
+2. Set the frontend root directory to `frontend`.
+3. Select Vite as the framework.
+4. Set the build command to `npm run build`.
+5. Set the output directory to `dist`.
+6. Configure `VITE_API_BASE_URL` with the public backend URL.
+7. Deploy the application.
+
+### Backend Deployment
+
+The documented backend deployment options include Render, Railway, or a container-based hosting platform.
+
+For Render, the typical configuration is:
+
+- Root directory: `backend`
+- Environment: Python
+- Build command: `pip install -r requirements.txt`
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+
+Configure the required environment variables and a persistent PostgreSQL database with pgvector.
+
+Note: The frontend live demo is deployed on Vercel. Backend and database availability depend on their actual deployment configuration.
+
+## 📈 11. Development Roadmap
+
+- [x] Phase 1: Project Initialization and Architecture Setup
+- [x] Phase 2: Frontend UI Development
+- [x] Phase 3: FastAPI Backend Architecture
+- [x] Phase 4: GitHub REST API Integration
+- [x] Phase 5: Mistral AI Integration and Natural Language Query Understanding
+- [x] Phase 6: Semantic Search, PostgreSQL, pgvector and RAG Chatbot
+- [ ] Phase 7: Multi-Repository Comparison Engine and AI Explanations
+- [ ] Phase 8: Advanced Production Hardening, CI/CD and Cloud Deployment
+
+## 🔮 12. Future Enhancements
+
+- Advanced repository recommendation algorithms.
+- Improved repository comparison and AI explanations.
+- More accurate semantic retrieval and reranking.
+- Enhanced documentation indexing.
+- Improved RAG answer verification and source grounding.
+- Automated testing and CI/CD integration.
+- Performance optimization and scalable cloud deployment.
+
+## 🎯 13. Project Benefits
+
+- Reduces the time required to discover relevant open-source projects.
+- Simplifies GitHub repository discovery through natural-language queries.
+- Helps beginners identify suitable projects.
+- Provides semantic project recommendations.
+- Enables conversational exploration of repository documentation.
+- Supports informed repository selection through comparisons and explanations.
+
+## 👨‍💻 14. Author and Repository
+
+**Project:** OpenScout – AI-Powered Open Source Project Finder
+
+**GitHub:** https://github.com/sujith2359/open-source-project-finder
+
+**Live Demo:** https://openscout-ai-dun.vercel.app/
+
 ---
 
-## 10. Development Roadmap
+⭐ If you find OpenScout useful, consider starring the repository!
 
-- [x] **Phase 1: Project Initialization and Architecture Setup** *(Completed)*
-  - Modular project structure, TypeScript/Vite/Tailwind setup, FastAPI core architecture, CORS configuration, health endpoints, environment templates, and comprehensive documentation.
-- [x] **Phase 2: Complete Frontend UI Development** *(Completed)*
-  - Modern developer-first UI (dark/light theme, Landing Page, Discover Projects with live filters, Repository Details, Multi-Repository Comparison matrix, Search History, Responsive Navigation & layout).
-- [x] **Phase 3: FastAPI Backend Architecture** *(Completed)*
-  - Production-ready FastAPI architecture with Pydantic v2 schemas, centralized settings, structured JSON/color logging, global error handling middleware, and modular routers (`/api/v1/search`, `/api/v1/repositories`, `/api/v1/compare`, `/api/v1/history`).
-- [x] **Phase 4: GitHub REST API Integration** *(Completed)*
-  - Async GitHub REST API client using HTTPX, live repository search with qualifiers (`language:`, `stars:>=`), owner/repo and ID lookup, rate-limit header parsing (`X-RateLimit-*`), exponential backoff on transient errors, and end-to-end integration with the React Discover and Repository Details UI.
-- [x] **Phase 5: Mistral AI Integration & Natural Language Query Understanding** *(Completed)*
-  - Official Mistral Python SDK (`mistral-small-latest`), structured prompt engineering, `ProjectRequirements` schema validation, defense against hallucinated languages vs frameworks, `POST /api/v1/understand-query`, end-to-end `POST /api/v1/ai-search` chained to GitHubService, and interactive frontend "Understanding your requirements" UI.
-- [x] **Phase 6: Semantic Search, PostgreSQL, pgvector and RAG Chatbot** *(Completed)*
-  - PostgreSQL schema and `pgvector` vector extension, Alembic async database migrations (`alembic/versions`), Docker Compose service (`pgvector/pgvector:pg16`), Sentence Transformers embedding engine (`sentence-transformers/all-MiniLM-L6-v2`, 384 dimensions), documentation crawler & markdown chunker (`ingestion_service.py`), semantic repository search engine (`semantic_search_service.py`), grounded RAG Q&A engine with citation tracking and persistence (`rag_service.py`), and React frontend integration (Semantic Search mode, similarity badges, interactive repository chatbot widget with index triggering and source citations).
-- [ ] **Phase 7: Multi-Repository Comparison Engine & AI Explanations**
-  - Side-by-side technical comparison matrices, documentation depth scoring, and tailored AI justifications.
-- [ ] **Phase 8: Advanced Production Hardening, CI/CD, and Cloud Deployment**
-  - GitHub Actions CI/CD pipelines, Vercel frontend deployment, and Render backend & managed database provisioning.
-
----
-
-## 👨‍💻 Author
-
-**Thejeswar Reddy**  
-B.Tech — Computer Science & Engineering (AI & ML)
-
-
+**Explore Open Source. Discover Projects. Build Better.**
